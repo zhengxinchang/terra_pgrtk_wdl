@@ -1,0 +1,1 @@
+ ~/bin/dockstore yaml validate --path /mnt/e/projects/git_repo/terra_pgrtk_wdl/

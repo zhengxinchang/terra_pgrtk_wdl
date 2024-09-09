@@ -44,7 +44,7 @@ task RunAGCCreateAndPGRTKmdb {
         # Run AGC create command
         /software/bins/agc create -i input_paths.txt -t ~{threads} ~{reference_file} > ~{output_filename}.agc
 
-        echo {output_filename}.agc > ~{output_filename}.mdb.input.txt
+        echo ~{output_filename}.agc > ~{output_filename}.mdb.input.txt
 
         /software/bins/pgr-mdb ~{output_filename}.mdb.input.txt  ~{output_filename}
 
