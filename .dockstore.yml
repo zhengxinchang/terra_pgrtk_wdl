@@ -2,9 +2,8 @@ version: 1.2
 workflows:
   - subclass: WDL
     primaryDescriptorPath: /runPGRTK.wdl  # absolute path
-    testParameterFiles: <String Array>  # absolute path
+    testParameterFiles: /test.wdl.json  # absolute path
     readMePath: /README.md # absolute path
     authors:
       - name: Xinchang Zheng
         email: zhengxc93@gmail.com
-          
