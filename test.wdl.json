@@ -4,4 +4,4 @@
     "runPGRTKALL.docker_image": "String (optional, default = \"quay.io/zhengxc93/pgrtk-cloud1:latest\")",
     "runPGRTKALL.reference_file": "ref.fa",
     "runPGRTKALL.threads": "Int (optional, default = 8)"
-  }
+}
