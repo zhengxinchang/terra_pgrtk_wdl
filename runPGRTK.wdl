@@ -17,9 +17,9 @@ workflow runPGRTKALL {
             reference_file = reference_file,
             threads = threads,
             output_filename = output_filename_prefix,
-            docker_image = docker_image
+            docker_image = docker_image,
+            mem = mem,
             disk = disk
-            mem = mem
     }
 
     output {
