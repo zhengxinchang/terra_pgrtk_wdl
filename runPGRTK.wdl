@@ -5,6 +5,8 @@ workflow runPGRTKALL {
         Array[File] input_files
         File reference_file
         Int threads = 8
+        String mem = "60 GB"
+        String disk = "120 GB"
         String output_filename_prefix
         String docker_image = "quay.io/zhengxc93/pgrtk-cloud1:latest"
     }
@@ -16,6 +18,8 @@ workflow runPGRTKALL {
             threads = threads,
             output_filename = output_filename_prefix,
             docker_image = docker_image
+            disk = disk
+            mem = mem
     }
 
     output {
@@ -32,6 +36,8 @@ task RunAGCCreateAndPGRTKmdb {
         Int threads
         String output_filename
         String docker_image
+        String mem
+        String disk
     }
 
     # Create a file containing the paths of all input files
@@ -59,8 +65,8 @@ task RunAGCCreateAndPGRTKmdb {
     runtime {
         docker: docker_image
         cpu: threads
-        memory: "60 GB"
-        disk: "30 GB"
+        memory: mem
+        disk: disk
     }
 }
 
