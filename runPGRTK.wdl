@@ -6,7 +6,7 @@ workflow runPGRTKALL {
         File reference_file
         Int threads = 8
         String mem = "60 GB"
-        Int disk_size = 1 + 10*ceil(size(input_files, "GB") ) + size(reference_file, "GB")
+        Int disk_size = 1 + 10*ceil(size(input_files, "GB") ) + ceil(size(reference_file, "GB"))
         String output_filename_prefix
         String docker_image = "quay.io/zhengxc93/pgrtk-cloud1:latest"
     }
