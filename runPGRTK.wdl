@@ -37,7 +37,7 @@ task RunAGCCreateAndPGRTKmdb {
         String output_filename
         String docker_image
         String mem
-        String disk
+        Int disk
     }
 
     # Create a file containing the paths of all input files
