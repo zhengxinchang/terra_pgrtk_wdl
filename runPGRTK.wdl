@@ -6,7 +6,7 @@ workflow runPGRTKALL {
         File reference_file
         Int threads = 8
         String mem = "60 GB"
-        Int disk_size = 1 + 10*ceil(size(input_files, "GB") ) + ceil(size(reference_file, "GB"))
+        Int disk_size = 1 + 3*ceil(size(input_files, "GB") ) + ceil(size(reference_file, "GB"))
         String output_filename_prefix
         String docker_image = "quay.io/zhengxc93/pgrtk-cloud1:latest"
     }
@@ -19,7 +19,7 @@ workflow runPGRTKALL {
             output_filename = output_filename_prefix,
             docker_image = docker_image,
             mem = mem,
-            disk = disk_size
+            disks = disk_size
     }
 
     output {
@@ -37,7 +37,7 @@ task RunAGCCreateAndPGRTKmdb {
         String output_filename
         String docker_image
         String mem
-        Int disk
+        Int disks
     }
 
     # Create a file containing the paths of all input files
@@ -66,7 +66,7 @@ task RunAGCCreateAndPGRTKmdb {
         docker: docker_image
         cpu: threads
         memory: mem
-        disk: disk
+        disks: "local-disk ~{disks} SSD"             
     }
 }
 
